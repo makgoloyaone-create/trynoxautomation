@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Mail, MapPin } from "lucide-react";
 
+import { Reveal } from "@/components/reveal";
 import { Page, PageHeader } from "@/components/site";
 
 export const Route = createFileRoute("/contact")({
@@ -33,7 +34,7 @@ function Contact() {
 
       <section>
         <div className="mx-auto grid max-w-6xl gap-5 px-5 py-24 md:grid-cols-2">
-          <article className="rounded-xl border border-border bg-card p-8">
+          <Reveal as="article" className="card-lift rounded-xl border border-border bg-card p-8">
             <Mail className="h-5 w-5 text-[oklch(0.45_0.09_245)]" />
             <h2 className="mt-6 font-display text-2xl text-foreground">Get in touch</h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
@@ -42,12 +43,12 @@ function Contact() {
             </p>
             <a
               href="mailto:trynoxautomation@gmail.com"
-              className="mt-6 inline-flex rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              className="btn-press mt-6 inline-flex rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
             >
               trynoxautomation@gmail.com
             </a>
-          </article>
-          <article className="rounded-xl border border-border bg-card p-8">
+          </Reveal>
+          <Reveal as="article" delay={120} className="card-lift rounded-xl border border-border bg-card p-8">
             <MapPin className="h-5 w-5 text-[oklch(0.45_0.09_245)]" />
             <h2 className="mt-6 font-display text-2xl text-foreground">Where we are</h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
@@ -57,7 +58,7 @@ function Contact() {
               We work with clients across South Africa and internationally, remotely and on site
               where it helps.
             </p>
-          </article>
+          </Reveal>
         </div>
       </section>
     </Page>
