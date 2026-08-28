@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, type LinkProps } from "@tanstack/react-router";
 import { ArrowRight, Menu } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
@@ -163,8 +163,8 @@ export function CtaBand({
 }: {
   title: string;
   body?: string;
-  primary: { to: string; label: string };
-  secondary?: { to: string; label: string };
+  primary: { to: LinkProps["to"]; label: string };
+  secondary?: { to: LinkProps["to"]; label: string };
 }) {
   return (
     <section className="border-t border-border">
