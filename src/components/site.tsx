@@ -163,8 +163,8 @@ export function CtaBand({
 }: {
   title: string;
   body?: string;
-  primary: { to: LinkProps["to"]; label: string };
-  secondary?: { to: LinkProps["to"]; label: string };
+  primary: { to: NonNullable<LinkProps["to"]>; label: string };
+  secondary?: { to: NonNullable<LinkProps["to"]>; label: string };
 }) {
   return (
     <section className="border-t border-border">
