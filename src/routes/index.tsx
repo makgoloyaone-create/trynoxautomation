@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Bot, Globe, Headphones, Plug, Workflow, UserPlus } from "lucide-react";
 
 import heroImage from "@/assets/hero-automation.jpg";
+import { Reveal } from "@/components/reveal";
 import { CtaBand, Page } from "@/components/site";
 
 export const Route = createFileRoute("/")({
@@ -43,34 +44,34 @@ const steps = [
 function Index() {
   return (
     <Page>
-      <section style={{ backgroundImage: "var(--gradient-hero)" }}>
+      <section className="hero-gradient overflow-hidden">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-24 md:grid-cols-2">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/70 px-4 py-1.5 text-xs text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+            <span className="animate-rise inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/70 px-4 py-1.5 text-xs text-muted-foreground">
+              <span className="animate-pulse-dot h-1.5 w-1.5 rounded-full bg-primary" />
               AI Automation Agency — Mahikeng, South Africa
             </span>
-            <h1 className="mt-6 font-display text-5xl leading-[1.05] text-foreground md:text-6xl">
+            <h1 style={{ animationDelay: "120ms" }} className="animate-rise mt-6 font-display text-5xl leading-[1.05] text-foreground md:text-6xl">
               Automate Your Business.
               <br />
               Work Smarter.
               <br />
               <span className="text-[oklch(0.42_0.09_245)]">Grow Faster.</span>
             </h1>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
+            <p style={{ animationDelay: "240ms" }} className="animate-rise mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
               TRYNOX helps businesses use AI and automation to save time, capture more
               opportunities, improve customer experiences, and streamline everyday operations.
             </p>
-            <div className="mt-9 flex flex-wrap gap-3">
+            <div style={{ animationDelay: "360ms" }} className="animate-rise mt-9 flex flex-wrap gap-3">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground btn-press arrow-slide hover:bg-primary/90"
               >
                 Get Started <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/services"
-                className="inline-flex items-center rounded-md border border-border bg-background/80 px-6 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-background"
+                className="inline-flex items-center rounded-md border border-border bg-background/80 px-6 py-3.5 text-sm font-medium text-foreground btn-press hover:bg-background"
               >
                 Explore Our Services
               </Link>
@@ -81,13 +82,13 @@ function Index() {
             alt="Interconnected AI automation workflow network powering a business dashboard"
             width={1200}
             height={900}
-            className="w-full rounded-xl border border-border/50 shadow-[0_30px_60px_-30px_oklch(0.3_0.06_250_/_0.45)]"
+            className="animate-float w-full rounded-xl border border-border/50 shadow-[0_30px_60px_-30px_oklch(0.3_0.06_250_/_0.45)]"
           />
         </div>
       </section>
 
       <section className="border-t border-border bg-secondary/40">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-24 md:grid-cols-2">
+        <Reveal className="mx-auto grid max-w-6xl gap-10 px-5 py-24 md:grid-cols-2">
           <h2 className="font-display text-4xl leading-tight text-foreground">
             Technology should make your business easier to run — not harder.
           </h2>
@@ -104,29 +105,29 @@ function Index() {
               businesses can rely on.
             </p>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       <section>
         <div className="mx-auto max-w-6xl px-5 py-24">
-          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">What we do</p>
-          <div className="mt-4 flex flex-wrap items-end justify-between gap-4">
+          <Reveal as="p" className="text-xs uppercase tracking-[0.2em] text-muted-foreground">What we do</Reveal>
+          <Reveal delay={80} className="mt-4 flex flex-wrap items-end justify-between gap-4">
             <h2 className="max-w-2xl font-display text-4xl leading-tight text-foreground">
               Systems that quietly do the work in the background
             </h2>
             <Link
               to="/services"
-              className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:opacity-70"
+              className="arrow-slide inline-flex items-center gap-2 text-sm font-medium text-foreground hover:opacity-70"
             >
               All services <ArrowRight className="h-4 w-4" />
             </Link>
-          </div>
+          </Reveal>
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((s) => (
+            {services.map((s, i) => (
+              <Reveal key={s.title} delay={i * 70}>
               <Link
-                key={s.title}
                 to="/services"
-                className="group rounded-xl border border-border bg-card p-6 transition-colors hover:border-foreground/25"
+                className="card-lift arrow-slide group block h-full rounded-xl border border-border bg-card p-6"
               >
                 <s.icon className="h-5 w-5 text-[oklch(0.45_0.09_245)]" />
                 <h3 className="mt-6 text-base font-medium text-foreground">{s.title}</h3>
@@ -134,6 +135,7 @@ function Index() {
                   Learn more <ArrowRight className="h-3.5 w-3.5" />
                 </span>
               </Link>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -141,19 +143,19 @@ function Index() {
 
       <section className="border-t border-border bg-secondary/40">
         <div className="mx-auto max-w-6xl px-5 py-24">
-          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+          <Reveal as="p" className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
             Build. Automate. Grow.
-          </p>
-          <h2 className="mt-4 max-w-2xl font-display text-4xl leading-tight text-foreground">
+          </Reveal>
+          <Reveal as="h2" delay={80} className="mt-4 max-w-2xl font-display text-4xl leading-tight text-foreground">
             The way we work on every project — and the order your business should do it in.
-          </h2>
+          </Reveal>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {steps.map((s) => (
-              <div key={s.n} className="rounded-xl border border-border bg-card p-6">
+            {steps.map((s, i) => (
+              <Reveal key={s.n} delay={i * 90} className="card-lift h-full rounded-xl border border-border bg-card p-6">
                 <span className="font-display text-2xl text-[oklch(0.6_0.06_245)]">{s.n}</span>
                 <h3 className="mt-4 text-base font-medium text-foreground">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
