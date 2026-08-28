@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Bot, Globe, Headphones, Plug, UserPlus, Workflow } from "lucide-react";
 
+import { Reveal } from "@/components/reveal";
 import { CtaBand, Page, PageHeader } from "@/components/site";
 
 export const Route = createFileRoute("/services")({
@@ -84,33 +85,33 @@ function Services() {
 
       <section>
         <div className="mx-auto grid max-w-6xl gap-4 px-5 py-24 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s) => (
-            <article key={s.title} className="rounded-xl border border-border bg-card p-7">
+          {services.map((s, i) => (
+            <Reveal as="article" key={s.title} delay={i * 70} className="card-lift rounded-xl border border-border bg-card p-7">
               <s.icon className="h-5 w-5 text-[oklch(0.45_0.09_245)]" />
               <h2 className="mt-6 text-lg font-medium text-foreground">{s.title}</h2>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
-            </article>
+            </Reveal>
           ))}
         </div>
       </section>
 
       <section className="border-t border-border bg-secondary/40">
         <div className="mx-auto max-w-6xl px-5 py-24">
-          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Portfolio</p>
-          <h2 className="mt-4 font-display text-4xl text-foreground">Some of our work</h2>
+          <Reveal as="p" className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Portfolio</Reveal>
+          <Reveal as="h2" delay={80} className="mt-4 font-display text-4xl text-foreground">Some of our work</Reveal>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
             A selection of local businesses we have helped with websites, automation and customer
             follow-up systems.
           </p>
           <div className="mt-12 grid gap-4 md:grid-cols-3">
-            {work.map((w) => (
-              <article key={w.name} className="rounded-xl border border-border bg-card p-7">
+            {work.map((w, i) => (
+              <Reveal as="article" key={w.name} delay={i * 90} className="card-lift rounded-xl border border-border bg-card p-7">
                 <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary font-display text-base text-primary-foreground">
                   {w.initial}
                 </span>
                 <h3 className="mt-6 text-base font-medium text-foreground">{w.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{w.body}</p>
-              </article>
+              </Reveal>
             ))}
           </div>
         </div>

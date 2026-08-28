@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import { Reveal } from "@/components/reveal";
 import { CtaBand, Page, PageHeader } from "@/components/site";
 
 export const Route = createFileRoute("/about")({
@@ -33,7 +34,7 @@ function About() {
       />
 
       <section>
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-24 md:grid-cols-2">
+        <Reveal className="mx-auto grid max-w-6xl gap-10 px-5 py-24 md:grid-cols-2">
           <p className="text-base leading-relaxed text-muted-foreground">
             TRYNOX was founded by Tiroyaone Makgolo and Motheo Mpuisang, two entrepreneurs based in
             Mahikeng, South Africa, with a single goal: help businesses use modern technology and
@@ -44,19 +45,19 @@ function About() {
             with the same seriousness — clear scoping, careful build quality and systems our clients
             can depend on long after launch.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       <section className="border-t border-border bg-secondary/40">
         <div className="mx-auto grid max-w-6xl gap-5 px-5 py-24 md:grid-cols-2">
-          {founders.map((f) => (
-            <article key={f.name} className="rounded-xl border border-border bg-card p-8">
+          {founders.map((f, i) => (
+            <Reveal as="article" key={f.name} delay={i * 120} className="card-lift rounded-xl border border-border bg-card p-8">
               <span className="flex h-14 w-14 items-center justify-center rounded-full bg-primary font-display text-xl text-primary-foreground">
                 {f.initial}
               </span>
               <h2 className="mt-6 font-display text-2xl text-foreground">{f.name}</h2>
               <p className="mt-1 text-sm text-muted-foreground">Co-Founder</p>
-            </article>
+            </Reveal>
           ))}
         </div>
       </section>

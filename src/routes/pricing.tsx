@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 
+import { Reveal } from "@/components/reveal";
 import { Page, PageHeader } from "@/components/site";
 
 export const Route = createFileRoute("/pricing")({
@@ -70,10 +71,12 @@ function Pricing() {
 
       <section>
         <div className="mx-auto grid max-w-6xl gap-5 px-5 py-24 md:grid-cols-3">
-          {plans.map((p) => (
-            <article
+          {plans.map((p, i) => (
+            <Reveal
+              as="article"
               key={p.name}
-              className={`flex flex-col rounded-xl border bg-card p-8 ${
+              delay={i * 100}
+              className={`card-lift flex flex-col rounded-xl border bg-card p-8 ${
                 p.featured ? "border-foreground/30 shadow-lg" : "border-border"
               }`}
             >
@@ -96,7 +99,7 @@ function Pricing() {
               </ul>
               <Link
                 to="/contact"
-                className={`mt-9 inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-medium transition-colors ${
+                className={`mt-9 inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-medium btn-press ${
                   p.featured
                     ? "bg-primary text-primary-foreground hover:bg-primary/90"
                     : "border border-border text-foreground hover:bg-accent"
@@ -104,7 +107,7 @@ function Pricing() {
               >
                 Request a quote
               </Link>
-            </article>
+            </Reveal>
           ))}
         </div>
       </section>

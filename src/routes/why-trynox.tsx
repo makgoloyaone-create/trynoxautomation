@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import { Reveal } from "@/components/reveal";
 import { CtaBand, Page, PageHeader } from "@/components/site";
 
 export const Route = createFileRoute("/why-trynox")({
@@ -63,25 +64,25 @@ function WhyTrynox() {
 
       <section>
         <div className="mx-auto grid max-w-6xl gap-4 px-5 py-24 sm:grid-cols-2 lg:grid-cols-3">
-          {reasons.map((r) => (
-            <article key={r.title} className="rounded-xl border border-border bg-card p-7">
+          {reasons.map((r, i) => (
+            <Reveal as="article" key={r.title} delay={i * 70} className="card-lift rounded-xl border border-border bg-card p-7">
               <h2 className="text-lg font-medium text-foreground">{r.title}</h2>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{r.body}</p>
-            </article>
+            </Reveal>
           ))}
         </div>
       </section>
 
       <section className="border-t border-border bg-secondary/40">
         <div className="mx-auto max-w-6xl px-5 py-24">
-          <h2 className="font-display text-4xl text-foreground">How we work</h2>
+          <Reveal as="h2" className="font-display text-4xl text-foreground">How we work</Reveal>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {steps.map((s) => (
-              <div key={s.n} className="rounded-xl border border-border bg-card p-6">
+            {steps.map((s, i) => (
+              <Reveal key={s.n} delay={i * 90} className="card-lift rounded-xl border border-border bg-card p-6">
                 <span className="font-display text-2xl text-[oklch(0.6_0.06_245)]">{s.n}</span>
                 <h3 className="mt-4 text-base font-medium text-foreground">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

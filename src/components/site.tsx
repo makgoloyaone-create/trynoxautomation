@@ -2,6 +2,8 @@ import { Link, type LinkProps } from "@tanstack/react-router";
 import { ArrowRight, Menu } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
+import { Reveal } from "@/components/reveal";
+
 const nav = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
@@ -13,8 +15,8 @@ const nav = [
 
 export function Logo() {
   return (
-    <Link to="/" className="flex items-center gap-2.5">
-      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary">
+    <Link to="/" className="group flex items-center gap-2.5">
+      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
         <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden="true">
           <path
             d="M6 17V7l12 10V7"
@@ -42,7 +44,7 @@ export function Header() {
             <Link
               key={item.to}
               to={item.to}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="nav-underline text-sm text-muted-foreground transition-colors hover:text-foreground"
               activeProps={{ className: "text-sm text-foreground" }}
               activeOptions={{ exact: item.to === "/" }}
             >
@@ -53,7 +55,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Link
             to="/contact"
-            className="hidden rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 sm:inline-flex"
+            className="btn-press hidden rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 sm:inline-flex"
           >
             Get Started
           </Link>
@@ -61,14 +63,14 @@ export function Header() {
             type="button"
             aria-label="Toggle menu"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border md:hidden"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border transition-transform active:scale-95 md:hidden"
           >
             <Menu className="h-4 w-4" />
           </button>
         </div>
       </div>
       {open && (
-        <div className="border-t border-border bg-background md:hidden">
+        <div className="animate-rise border-t border-border bg-background md:hidden">
           <div className="mx-auto flex max-w-6xl flex-col px-5 py-3">
             {nav.map((item) => (
               <Link
@@ -103,7 +105,7 @@ export function Footer() {
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
             {nav.slice(1).map((item) => (
               <li key={item.to}>
-                <Link to={item.to} className="hover:text-foreground">
+                <Link to={item.to} className="inline-block transition-transform duration-200 hover:translate-x-1 hover:text-foreground">
                   {item.label}
                 </Link>
               </li>
@@ -143,12 +145,12 @@ export function PageHeader({
   return (
     <section className="border-b border-border bg-secondary/40">
       <div className="mx-auto max-w-6xl px-5 py-20">
-        <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{eyebrow}</p>
-        <h1 className="mt-5 max-w-3xl font-display text-4xl leading-[1.1] text-foreground md:text-5xl">
+        <p className="animate-rise text-xs uppercase tracking-[0.2em] text-muted-foreground">{eyebrow}</p>
+        <h1 style={{ animationDelay: "100ms" }} className="animate-rise mt-5 max-w-3xl font-display text-4xl leading-[1.1] text-foreground md:text-5xl">
           {title}
         </h1>
         {intro && (
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">{intro}</p>
+          <p style={{ animationDelay: "220ms" }} className="animate-rise mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">{intro}</p>
         )}
       </div>
     </section>
@@ -168,7 +170,7 @@ export function CtaBand({
 }) {
   return (
     <section className="border-t border-border">
-      <div className="mx-auto max-w-6xl px-5 py-20 text-center">
+      <Reveal className="mx-auto max-w-6xl px-5 py-20 text-center">
         <h2 className="mx-auto max-w-2xl font-display text-3xl leading-tight text-foreground md:text-4xl">
           {title}
         </h2>
@@ -180,20 +182,20 @@ export function CtaBand({
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link
             to={primary.to}
-            className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="btn-press arrow-slide inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
           >
             {primary.label} <ArrowRight className="h-4 w-4" />
           </Link>
           {secondary && (
             <Link
               to={secondary.to}
-              className="inline-flex items-center rounded-md border border-border bg-background px-5 py-3 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+              className="btn-press inline-flex items-center rounded-md border border-border bg-background px-5 py-3 text-sm font-medium text-foreground hover:bg-accent"
             >
               {secondary.label}
             </Link>
           )}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
