@@ -79,14 +79,17 @@ function Index() {
             </div>
           </div>
           <video
-            src={heroVideoAsset.url}
             autoPlay
             muted
             loop
             playsInline
+            preload="auto"
             aria-label="TRYNOX logo animation"
             className="animate-float w-full rounded-xl border border-border/50 shadow-[0_30px_60px_-30px_oklch(0.3_0.06_250_/_0.45)]"
-          />
+          >
+            <source src={heroVideoWebmAsset.url} type="video/webm" />
+            <source src={heroVideoAsset.url} type="video/mp4" />
+          </video>
         </div>
       </section>
 
