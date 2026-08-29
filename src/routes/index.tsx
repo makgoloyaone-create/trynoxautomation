@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Bot, Globe, Headphones, Plug, Workflow, UserPlus } from "lucide-react";
 
-import heroImage from "@/assets/hero-automation.jpg";
+import heroVideoAsset from "@/assets/trynox-hero.mp4.asset.json";
 import { Reveal } from "@/components/reveal";
 import { CtaBand, Page } from "@/components/site";
 
