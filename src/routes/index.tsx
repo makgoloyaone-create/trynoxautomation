@@ -77,11 +77,13 @@ function Index() {
               </Link>
             </div>
           </div>
-          <img
-            src={heroImage}
-            alt="Interconnected AI automation workflow network powering a business dashboard"
-            width={1200}
-            height={900}
+          <video
+            src={heroVideoAsset.url}
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-label="TRYNOX logo animation"
             className="animate-float w-full rounded-xl border border-border/50 shadow-[0_30px_60px_-30px_oklch(0.3_0.06_250_/_0.45)]"
           />
         </div>
