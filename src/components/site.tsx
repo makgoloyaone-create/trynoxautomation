@@ -195,11 +195,29 @@ export function CtaBand({
   );
 }
 
+export function InstagramFab() {
+  return (
+    <a
+      href="https://www.instagram.com/trynox_automation?igsi=MXEzOXhvemF2NDAwcw=="
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="TRYNOX Automation on Instagram"
+      className="btn-press group fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg hover:bg-primary/90"
+    >
+      <Instagram className="h-5 w-5" />
+      <span className="pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-md border border-border bg-popover px-3 py-1.5 text-xs font-medium text-popover-foreground opacity-0 shadow-md transition-opacity duration-200 group-hover:opacity-100">
+        Follow us on Instagram
+      </span>
+    </a>
+  );
+}
+
 export function Page({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1">{children}</main>
+      <InstagramFab />
       <Footer />
     </div>
   );
