@@ -3,6 +3,7 @@ import { ArrowRight, Menu } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 import { Reveal } from "@/components/reveal";
+import trynoxMark from "@/assets/trynox-mark.png";
 
 const nav = [
   { to: "/", label: "Home" },
