@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Bot, Globe, Headphones, Plug, Workflow, UserPlus } from "lucide-react";
 
-import heroImage from "@/assets/hero-automation.jpg";
+import heroVideoAsset from "@/assets/trynox-hero.mp4.asset.json";
+import heroVideoWebmAsset from "@/assets/trynox-hero.webm.asset.json";
 import { Reveal } from "@/components/reveal";
 import { CtaBand, Page } from "@/components/site";
 
@@ -77,13 +78,18 @@ function Index() {
               </Link>
             </div>
           </div>
-          <img
-            src={heroImage}
-            alt="Interconnected AI automation workflow network powering a business dashboard"
-            width={1200}
-            height={900}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-label="TRYNOX logo animation"
             className="animate-float w-full rounded-xl border border-border/50 shadow-[0_30px_60px_-30px_oklch(0.3_0.06_250_/_0.45)]"
-          />
+          >
+            <source src={heroVideoWebmAsset.url} type="video/webm" />
+            <source src={heroVideoAsset.url} type="video/mp4" />
+          </video>
         </div>
       </section>
 
