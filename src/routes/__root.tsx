@@ -90,6 +90,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content: "Automate your business. Work smarter. Grow faster.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "TRYNOX" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -104,6 +105,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap",
       },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "TRYNOX",
+          description:
+            "AI automation and digital solutions agency based in Mahikeng, South Africa.",
+          email: "trynoxautomation@gmail.com",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Mahikeng",
+            addressCountry: "ZA",
+          },
+        }),
+      },
     ],
   }),
 
