@@ -3,6 +3,7 @@ import { ArrowRight, Menu } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 import { Reveal } from "@/components/reveal";
+import trynoxMark from "@/assets/trynox-mark.png";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -16,17 +17,11 @@ const nav = [
 export function Logo() {
   return (
     <Link to="/" className="group flex items-center gap-2.5">
-      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-        <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden="true">
-          <path
-            d="M6 17V7l12 10V7"
-            stroke="oklch(0.78 0.14 220)"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </span>
+      <img
+        src={trynoxMark}
+        alt="TRYNOX logo"
+        className="h-8 w-8 object-contain transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+      />
       <span className="font-display text-xl tracking-wide text-foreground">TRYNOX</span>
     </Link>
   );
