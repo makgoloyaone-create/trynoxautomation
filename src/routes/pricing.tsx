@@ -94,6 +94,12 @@ function Pricing() {
                 )}
               </div>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.tagline}</p>
+              <div className="mt-5 flex items-baseline gap-2">
+                <span className="font-display text-3xl text-foreground">{p.price}</span>
+                {p.priceNote && (
+                  <span className="text-sm text-muted-foreground">{p.priceNote}</span>
+                )}
+              </div>
               <ul className="mt-7 space-y-3">
                 {p.features.map((f) => (
                   <li key={f} className="flex gap-3 text-sm text-foreground">
