@@ -39,13 +39,12 @@ const plans = [
   {
     name: "Growth",
     tagline: "For businesses ready to automate day-to-day operations.",
-    price: "Custom quote",
-    priceNote: null,
+    price: "R14 500",
+    priceNote: "once-off + monthly retainer",
     featured: true,
     features: [
       "Everything in Starter",
       "AI chatbot trained on your business",
-      "Multiple connected workflows",
       "CRM and tool integrations",
       "Ongoing optimisation",
     ],
