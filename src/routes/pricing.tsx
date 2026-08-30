@@ -27,17 +27,20 @@ const plans = [
   {
     name: "Starter",
     tagline: "For small businesses taking their first automation step.",
+    price: "R6 500",
+    priceNote: "once-off",
     featured: false,
     features: [
       "Professional website or landing page",
       "One automated workflow",
-      "Lead capture form and notifications",
       "Setup, training and handover",
     ],
   },
   {
     name: "Growth",
     tagline: "For businesses ready to automate day-to-day operations.",
+    price: "Custom quote",
+    priceNote: null,
     featured: true,
     features: [
       "Everything in Starter",
@@ -50,6 +53,8 @@ const plans = [
   {
     name: "Custom",
     tagline: "For teams with specific systems and larger requirements.",
+    price: "Custom quote",
+    priceNote: null,
     featured: false,
     features: [
       "Fully bespoke automation architecture",
@@ -89,6 +94,12 @@ function Pricing() {
                 )}
               </div>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.tagline}</p>
+              <div className="mt-5 flex items-baseline gap-2">
+                <span className="font-display text-3xl text-foreground">{p.price}</span>
+                {p.priceNote && (
+                  <span className="text-sm text-muted-foreground">{p.priceNote}</span>
+                )}
+              </div>
               <ul className="mt-7 space-y-3">
                 {p.features.map((f) => (
                   <li key={f} className="flex gap-3 text-sm text-foreground">
