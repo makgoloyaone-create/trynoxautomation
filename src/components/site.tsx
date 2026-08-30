@@ -1,5 +1,5 @@
 import { Link, type LinkProps } from "@tanstack/react-router";
-import { ArrowRight, Menu } from "lucide-react";
+import { ArrowRight, Instagram, Menu } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 import { Reveal } from "@/components/reveal";
