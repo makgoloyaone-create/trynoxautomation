@@ -14,7 +14,10 @@ export const Route = createFileRoute("/about")({
       },
       { property: "og:title", content: "About TRYNOX" },
       { property: "og:description", content: "Founded to make modern technology usable." },
+      { property: "og:url", content: "https://trynoxautomation.lovable.app/about" },
+      { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "https://trynoxautomation.lovable.app/about" }],
   }),
   component: About,
 });

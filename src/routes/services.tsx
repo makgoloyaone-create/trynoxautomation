@@ -18,7 +18,10 @@ export const Route = createFileRoute("/services")({
         property: "og:description",
         content: "Practical systems that do the routine work for you.",
       },
+      { property: "og:url", content: "https://trynoxautomation.lovable.app/services" },
+      { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "https://trynoxautomation.lovable.app/services" }],
   }),
   component: Services,
 });

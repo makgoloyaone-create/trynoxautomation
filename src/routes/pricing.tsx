@@ -18,7 +18,10 @@ export const Route = createFileRoute("/pricing")({
         property: "og:description",
         content: "Scoped to the work, quoted once we understand it.",
       },
+      { property: "og:url", content: "https://trynoxautomation.lovable.app/pricing" },
+      { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "https://trynoxautomation.lovable.app/pricing" }],
   }),
   component: Pricing,
 });
