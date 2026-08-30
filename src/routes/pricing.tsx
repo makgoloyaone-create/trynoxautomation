@@ -27,17 +27,20 @@ const plans = [
   {
     name: "Starter",
     tagline: "For small businesses taking their first automation step.",
+    price: "R6 500",
+    priceNote: "once-off",
     featured: false,
     features: [
       "Professional website or landing page",
       "One automated workflow",
-      "Lead capture form and notifications",
       "Setup, training and handover",
     ],
   },
   {
     name: "Growth",
     tagline: "For businesses ready to automate day-to-day operations.",
+    price: "Custom quote",
+    priceNote: null,
     featured: true,
     features: [
       "Everything in Starter",
@@ -50,6 +53,8 @@ const plans = [
   {
     name: "Custom",
     tagline: "For teams with specific systems and larger requirements.",
+    price: "Custom quote",
+    priceNote: null,
     featured: false,
     features: [
       "Fully bespoke automation architecture",
