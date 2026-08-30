@@ -18,7 +18,10 @@ export const Route = createFileRoute("/contact")({
         property: "og:description",
         content: "Let's find what your business should stop doing manually.",
       },
+      { property: "og:url", content: "https://trynoxautomation.lovable.app/contact" },
+      { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "https://trynoxautomation.lovable.app/contact" }],
   }),
   component: Contact,
 });

@@ -21,7 +21,10 @@ export const Route = createFileRoute("/")({
         content:
           "Automate your business. Work smarter. Grow faster. Practical AI automation, chatbots and websites.",
       },
+      { property: "og:url", content: "https://trynoxautomation.lovable.app/" },
+      { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "https://trynoxautomation.lovable.app/" }],
   }),
   component: Index,
 });
