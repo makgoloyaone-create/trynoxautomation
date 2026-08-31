@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Bot, Globe, Headphones, Plug, Workflow, UserPlus } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 import heroVideoAsset from "@/assets/trynox-hero.mp4.asset.json";
 import heroVideoWebmAsset from "@/assets/trynox-hero.webm.asset.json";
@@ -46,6 +47,37 @@ const steps = [
 ];
 
 function Index() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const el = videoRef.current;
+    if (!el) return;
+    el.muted = true;
+    el.defaultMuted = true;
+
+    const tryPlay = () => {
+      const p = el.play();
+      if (p) p.catch(() => undefined);
+    };
+
+    tryPlay();
+    el.addEventListener("canplay", tryPlay);
+    el.addEventListener("loadeddata", tryPlay);
+    document.addEventListener("visibilitychange", tryPlay);
+    // last-resort: resume on first user interaction
+    const onInteract = () => tryPlay();
+    document.addEventListener("touchstart", onInteract, { once: true });
+    document.addEventListener("click", onInteract, { once: true });
+
+    return () => {
+      el.removeEventListener("canplay", tryPlay);
+      el.removeEventListener("loadeddata", tryPlay);
+      document.removeEventListener("visibilitychange", tryPlay);
+      document.removeEventListener("touchstart", onInteract);
+      document.removeEventListener("click", onInteract);
+    };
+  }, []);
+
   return (
     <Page>
       <section className="hero-gradient overflow-hidden">
