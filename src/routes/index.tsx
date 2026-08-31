@@ -114,8 +114,11 @@ function Index() {
             </div>
           </div>
           <video
+            ref={videoRef}
             autoPlay
             muted
+            disablePictureInPicture
+            controls={false}
             loop
             playsInline
             preload="auto"
